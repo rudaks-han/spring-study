@@ -1,0 +1,6 @@
+GET http://localhost:8080/users
+###
+POST http://localhost:8080/users
+target-method: PUT
+###
+PUT http://localhost:8080/users
