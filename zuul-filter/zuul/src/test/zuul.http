@@ -1,0 +1,39 @@
+GET http://localhost:8000/users
+customHeader: rudaks
+content-Type: application/json
+
+{
+  "userId": "rudaks"
+}
+###
+GET http://localhost:8080/users
+customHeader: rudaks
+content-Type: application/json
+
+{
+  "userId": "rudaks"
+}
+###
+POST http://localhost:8080/users
+customHeader: rudaks
+content-Type: application/json
+
+{
+  "userId": "rudaks"
+}
+###
+PUT http://localhost:8080/users
+
+content-Type: application/json
+
+{
+  "userId": "rudaks"
+}
+###
+DELETE http://localhost:8080/users
+customHeader: rudaks
+content-Type: application/json
+
+{
+  "userId": "rudaks"
+}
