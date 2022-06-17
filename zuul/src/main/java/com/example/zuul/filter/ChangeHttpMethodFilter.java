@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
-public class CustomZuulFilter extends ZuulFilter {
+public class ChangeHttpMethodFilter extends ZuulFilter {
 
     private static List<String> VALID_METHOD = Arrays.asList("GET", "POST", "PUT", "DELETE");
 
