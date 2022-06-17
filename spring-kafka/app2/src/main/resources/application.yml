@@ -5,5 +5,5 @@ spring:
   kafka:
     bootstrap-servers: infra.spectra.co.kr:9092
     consumer:
-      #properties:
-        #spring.json.type.mapping: com.example.app1.model.TextMessage:com.example.app2.model.TextMessage,com.example.app1.model.FileMessage:com.example.app2.model.FileMessage
+      properties:
+        spring.json.type.mapping: com.example.app1.model.TextMessage:com.example.app2.model.TextMessage,com.example.app1.model.FileMessage:com.example.app2.model.FileMessage
