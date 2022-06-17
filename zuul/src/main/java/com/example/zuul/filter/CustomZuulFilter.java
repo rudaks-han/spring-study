@@ -6,9 +6,13 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
+import java.util.Arrays;
+import java.util.List;
 
 @Component
 public class CustomZuulFilter extends ZuulFilter {
+
+    private static List<String> VALID_METHOD = Arrays.asList("GET", "POST", "PUT", "DELETE");
 
     @Override
     public String filterType() {
@@ -39,9 +43,9 @@ public class CustomZuulFilter extends ZuulFilter {
         private String method;
         public PostHttpServletRequest(HttpServletRequest request) {
             super(request);
-            String targetMethod = request.getHeader("target-method");
-            if (targetMethod != null) {
-                this.method = targetMethod;
+            String changeMethod = request.getHeader("change-method");
+            if (changeMethod != null && VALID_METHOD.contains(changeMethod.toUpperCase())) {
+                this.method = changeMethod;
             } else {
                 this.method = request.getMethod();
             }
