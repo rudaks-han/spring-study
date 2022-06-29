@@ -8,7 +8,7 @@ import spectra.attic.coreasset.share.util.JsonSerializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class FileMessage implements JsonSerializable {
+public class FileMessage extends Message {
 
     private String text;
 }

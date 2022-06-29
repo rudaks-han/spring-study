@@ -1,3 +1,5 @@
 POST http://localhost:8080/messages/text
 ###
 POST http://localhost:8080/messages/file
+###
+POST http://localhost:8080/messages/admin

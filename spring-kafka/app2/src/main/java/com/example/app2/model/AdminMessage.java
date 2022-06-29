@@ -3,12 +3,11 @@ package com.example.app2.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import spectra.attic.coreasset.share.util.JsonSerializable;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
-public class TextMessage extends Message {
+public class AdminMessage extends Message {
 
     private String text;
 }
