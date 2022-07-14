@@ -24,6 +24,9 @@
         <module>kafkaconfig</module>
         <module>rebalancing</module>
         <module>data-mapping</module>
+        <module>publisher-speed</module>
+        <module>publisher-speed/publisher</module>
+        <module>publisher-speed/subscriber</module>
     </modules>
 
     <dependencies>
