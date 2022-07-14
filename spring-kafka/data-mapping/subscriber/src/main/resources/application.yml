@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+spring:
+  kafka:
+    bootstrap-servers: infra.spectra.co.kr:9092
+    consumer:
+#      key.deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+#      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+#      spring.deserializer.key.delegate.class: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+#      spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+#      spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+#        spring.json.type.mapping: com.example.datamapping.model.Message:com.example.datamapping.model.Message
+        spring.json.type.mapping: com.example.datamapping.model.TextMessage:com.example.datamapping.model.TextMessage,com.example.datamapping.model.FileMessage:com.example.datamapping.model.FileMessage
+#        spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+#        spring.deserializer.value.delegate.class: spectra.attic.coreasset.share.util.JsonSerializable

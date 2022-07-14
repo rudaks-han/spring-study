@@ -1,0 +1,11 @@
+server:
+  port: 8081
+
+spring:
+  kafka:
+    bootstrap-servers: infra.spectra.co.kr:9092
+
+logging:
+  level:
+    root: info
+    org.apache.kafka.clients.consumer.internals.AbstractCoordinator: debug
