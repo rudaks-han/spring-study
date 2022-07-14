@@ -3,4 +3,5 @@ server:
 
 spring:
   kafka:
-    bootstrap-servers: infra.spectra.co.kr:9092
+    #bootstrap-servers: infra.spectra.co.kr:9092
+    bootstrap-servers: 172.16.120.151:9092,172.16.120.152:9092,172.16.120.153:9092

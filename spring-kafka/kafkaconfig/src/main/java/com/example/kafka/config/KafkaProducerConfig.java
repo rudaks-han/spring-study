@@ -28,6 +28,7 @@ public class KafkaProducerConfig {
         Map<String, Object> props = kafkaProperties.buildProducerProperties();
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+        props.put(ProducerConfig.ACKS_CONFIG, "1");
 
         DefaultKafkaProducerFactory<String, JsonSerializable> pf = new DefaultKafkaProducerFactory<>(props);
         pf.addListener(new MicrometerProducerListener<>(meterRegistry));
