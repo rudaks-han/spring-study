@@ -1,16 +1,11 @@
 package com.example.publisherspeed.controller;
 
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import com.example.kafka.model.TextMessage;
+import com.example.publisherspeed.TopicPublic;
 import lombok.RequiredArgsConstructor;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import spectra.attic.coreasset.share.util.JsonSerializable;
 
 @RestController
 @RequestMapping("messages")
@@ -26,7 +21,7 @@ public class MessageController {
         messageService.sendSync(count);
 
         long elapsedTime = System.currentTimeMillis() - start;
-        System.err.println(count + " sendSync elapsedTime : " + elapsedTime + "(ms)");
+        System.err.println("[" + TopicPublic.TOPIC_NAME + "] " + count + " sendSync elapsedTime : " + elapsedTime + "(ms)");
     }
 
     @GetMapping("async")
@@ -36,6 +31,6 @@ public class MessageController {
         messageService.sendAsync(count);
 
         long elapsedTime = System.currentTimeMillis() - start;
-        System.err.println(count + " sendASync elapsedTime : " + elapsedTime + "(ms)");
+        System.err.println("[" + TopicPublic.TOPIC_NAME + "] " + count + " sendASync elapsedTime : " + elapsedTime + "(ms)");
     }
 }

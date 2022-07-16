@@ -1,9 +1,7 @@
 package com.example.kafka.config;
 
-import java.util.Collections;
-import java.util.Map;
-
-import io.micrometer.core.instrument.MeterRegistry;
+import com.example.share.util.FilterableMessage;
+import com.example.share.util.JsonSerializable;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.TopicPartition;
@@ -15,21 +13,19 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.core.MicrometerConsumerListener;
 import org.springframework.kafka.listener.DeadLetterPublishingRecoverer;
 import org.springframework.kafka.listener.SeekToCurrentErrorHandler;
 import org.springframework.kafka.support.serializer.ErrorHandlingDeserializer;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.util.backoff.FixedBackOff;
-import spectra.attic.coreasset.share.util.FilterableMessage;
-import spectra.attic.coreasset.share.util.JsonSerializable;
+
+import java.util.Collections;
+import java.util.Map;
 
 @Configuration
 @RequiredArgsConstructor
 public class KafkaConsumerConfig {
     private final KafkaProperties kafkaProperties;
-
-    private final MeterRegistry meterRegistry;
 
     private final KafkaTemplate<String, JsonSerializable> kafkaTemplate;
 
@@ -42,7 +38,6 @@ public class KafkaConsumerConfig {
         props.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
 
         DefaultKafkaConsumerFactory<String, JsonSerializable> cf = new DefaultKafkaConsumerFactory<>(props);
-        cf.addListener(new MicrometerConsumerListener<>(meterRegistry));
         return cf;
     }
 
@@ -55,7 +50,6 @@ public class KafkaConsumerConfig {
         props.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
 
         DefaultKafkaConsumerFactory<String, FilterableMessage> cf = new DefaultKafkaConsumerFactory<>(props);
-        cf.addListener(new MicrometerConsumerListener<>(meterRegistry));
         return cf;
     }
 

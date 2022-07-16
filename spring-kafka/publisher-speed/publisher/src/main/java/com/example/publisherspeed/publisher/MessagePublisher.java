@@ -1,17 +1,15 @@
 package com.example.publisherspeed.publisher;
 
-import java.util.concurrent.ExecutionException;
-
 import com.example.kafka.model.TextMessage;
-import com.example.publisherspeed.model.AsyncMessage;
-import com.example.publisherspeed.model.SyncMessage;
+import com.example.publisherspeed.TopicPublic;
+import com.example.share.util.JsonSerializable;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.event.TransactionalEventListener;
-import spectra.attic.coreasset.share.util.JsonSerializable;
+
+import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 @Component
 @RequiredArgsConstructor
@@ -19,22 +17,11 @@ public class MessagePublisher {
 
     private final KafkaTemplate<String, JsonSerializable> kafkaTemplate;
 
-    private final ApplicationEventPublisher applicationEventPublisher;
-
     @Transactional
     public void sendSync(TextMessage message) {
-        applicationEventPublisher.publishEvent(new SyncMessage(message));
-    }
-
-    @Transactional
-    public void sendAsync(TextMessage message) {
-        applicationEventPublisher.publishEvent(new AsyncMessage(message));
-    }
-
-    @TransactionalEventListener
-    public void doAfterCommit(SyncMessage syncMessage) {
         try {
-            kafkaTemplate.send("publisher-speed-sync", syncMessage.getKey(), syncMessage.getMessage()).get();
+            String key = UUID.randomUUID().toString();
+            kafkaTemplate.send(TopicPublic.TOPIC_NAME, key, message).get();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         } catch (ExecutionException e) {
@@ -42,8 +29,9 @@ public class MessagePublisher {
         }
     }
 
-    @TransactionalEventListener
-    public void doAfterCommit(AsyncMessage asyncMessage) {
-        kafkaTemplate.send("publisher-speed-sync", asyncMessage.getKey(), asyncMessage.getMessage());
+    @Transactional
+    public void sendAsync(TextMessage message) {
+        String key = UUID.randomUUID().toString();
+        kafkaTemplate.send(TopicPublic.TOPIC_NAME, key, message);
     }
 }

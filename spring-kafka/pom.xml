@@ -3,37 +3,27 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.12.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <artifactId>spring-study</artifactId>
+        <groupId>com.example</groupId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
+
     <groupId>com.example</groupId>
     <artifactId>spring-kafka</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+
     <name>spring-kafka</name>
     <description>spring-kafka</description>
-    <properties>
-        <java.version>1.8</java.version>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
 
     <modules>
         <module>kafkaconfig</module>
         <module>rebalancing</module>
         <module>data-mapping</module>
         <module>publisher-speed</module>
-        <module>publisher-speed/publisher</module>
-        <module>publisher-speed/subscriber</module>
     </modules>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.kafka</groupId>
@@ -41,43 +31,13 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>spectra.attic.coreasset.share</groupId>
+            <groupId>com.example</groupId>
             <artifactId>share-domain</artifactId>
-            <version>1.4.0.DEV-SNAPSHOT</version>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
+
     </dependencies>
 
-    <repositories>
-        <repository>
-            <id>nexus-public</id>
-            <name>nexus-public</name>
-            <url>https://nexus.spectra.co.kr/repository/maven-public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
-    <distributionManagement>
-        <repository>
-            <id>nexus-release</id>
-            <name>release</name>
-            <url>https://nexus.spectra.co.kr/repository/maven-releases/</url>
-        </repository>
-
-        <snapshotRepository>
-            <id>nexus-snapshot</id>
-            <name>snapshot</name>
-            <url>https://nexus.spectra.co.kr/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
     <!--    <build>
             <plugins>
                 <plugin>

@@ -1,9 +1,9 @@
 package com.example.rebalancing.model;
 
+import com.example.share.util.JsonSerializable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import spectra.attic.coreasset.share.util.JsonSerializable;
 
 @NoArgsConstructor
 @AllArgsConstructor

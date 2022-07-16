@@ -1,10 +1,10 @@
 package com.example.rebalancing.subscriber;
 
 import com.example.rebalancing.model.TextMessage;
+import com.example.share.util.JsonSerializable;
 import org.springframework.kafka.annotation.KafkaHandler;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
-import spectra.attic.coreasset.share.util.JsonSerializable;
 
 @Component
 @KafkaListener(

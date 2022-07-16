@@ -11,7 +11,7 @@
     <groupId>com.example</groupId>
     <artifactId>datamapping-publisher</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>publisher</name>
+    <name>data-mapping-publisher</name>
     <description>publisher</description>
 
     <dependencies>
@@ -22,6 +22,11 @@
         <dependency>
             <groupId>com.example</groupId>
             <artifactId>kafkaconfig</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>share-domain</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

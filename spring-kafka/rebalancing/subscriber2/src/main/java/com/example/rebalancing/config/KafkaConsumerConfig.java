@@ -3,6 +3,8 @@ package com.example.rebalancing.config;
 import java.util.Collections;
 import java.util.Map;
 
+import com.example.share.util.FilterableMessage;
+import com.example.share.util.JsonSerializable;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.TopicPartition;
@@ -18,8 +20,6 @@ import org.springframework.kafka.listener.DeadLetterPublishingRecoverer;
 import org.springframework.kafka.listener.SeekToCurrentErrorHandler;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.util.backoff.FixedBackOff;
-import spectra.attic.coreasset.share.util.FilterableMessage;
-import spectra.attic.coreasset.share.util.JsonSerializable;
 
 @Configuration
 @RequiredArgsConstructor

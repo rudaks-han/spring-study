@@ -2,10 +2,10 @@ package com.example.datamapping.subscriber;
 
 import com.example.datamapping.model.FileMessage;
 import com.example.datamapping.model.TextMessage;
+import com.fasterxml.jackson.databind.JsonSerializable;
 import org.springframework.kafka.annotation.KafkaHandler;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
-import spectra.attic.coreasset.share.util.JsonSerializable;
 
 @Component
 @KafkaListener(

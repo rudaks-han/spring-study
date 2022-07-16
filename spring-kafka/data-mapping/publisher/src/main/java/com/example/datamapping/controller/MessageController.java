@@ -3,12 +3,12 @@ package com.example.datamapping.controller;
 import com.example.datamapping.model.AdminMessage;
 import com.example.datamapping.model.FileMessage;
 import com.example.datamapping.model.TextMessage;
+import com.example.share.util.JsonSerializable;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import spectra.attic.coreasset.share.util.JsonSerializable;
 
 @RestController
 @RequestMapping("messages")
