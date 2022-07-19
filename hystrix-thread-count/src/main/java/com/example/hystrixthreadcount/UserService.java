@@ -10,7 +10,7 @@ public class UserService {
     @HystrixCommand(
             fallbackMethod = "doFallback",
             commandProperties = {
-                @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000"), // thread가 해당 시간 이상 실행이 되면 timeout이 발생하여 fallback으로 빠진다
+                @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "10000"), // thread가 해당 시간 이상 실행이 되면 timeout이 발생하여 fallback으로 빠진다
                 @HystrixProperty(name = "execution.isolation.strategy", value = "SEMAPHORE"), // semaphore 방식을 이용
                 @HystrixProperty(name = "execution.isolation.semaphore.maxConcurrentRequests", value = "2") // semaphore 방식을 이용할 경우 최대 동시 요청 수
             },

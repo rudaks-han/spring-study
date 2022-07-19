@@ -6,8 +6,8 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 
 @SpringBootApplication
-@EnableCircuitBreaker
-@EnableHystrixDashboard
+//@EnableCircuitBreaker
+//@EnableHystrixDashboard
 public class HystrixThreadCountApplication {
 
     public static void main(String[] args) {
