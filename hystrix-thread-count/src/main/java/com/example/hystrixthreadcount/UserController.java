@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("test")
+@RequestMapping("users")
 @RequiredArgsConstructor
-public class MyController {
+public class UserController {
 
-    private final MyService myService;
+    private final UserService userService;
 
     @GetMapping
     public void find() {
-        myService.execute();
+        userService.find("rudaks");
     }
 }
