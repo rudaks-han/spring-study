@@ -17,12 +17,10 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class MessageSubscriber {
 
-    private String name = "sync-subscriber";
-
     @KafkaHandler
     public void handle(TextMessage textMessage) {
         //System.err.println("[" + name + "] message received: " + textMessage.toJson());
-        log.info("[" + name + "] message received: " + textMessage.toJson());
+        log.info("[topic-partition-3] message received: " + textMessage.toJson());
     }
 
     @KafkaHandler(isDefault = true)
