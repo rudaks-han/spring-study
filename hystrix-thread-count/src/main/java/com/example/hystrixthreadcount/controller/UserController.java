@@ -1,5 +1,8 @@
-package com.example.hystrixthreadcount;
+package com.example.hystrixthreadcount.controller;
 
+import com.example.hystrixthreadcount.service.BookService;
+import com.example.hystrixthreadcount.exception.NoUserFoundException;
+import com.example.hystrixthreadcount.service.UserService;
 import com.netflix.hystrix.exception.HystrixRuntimeException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,14 +19,15 @@ public class UserController {
     private final BookService bookService;
 
     @GetMapping
-    public void find() throws Exception {
+    public void find() {
         try {
             userService.find("rudaks", "rudaks");
         } catch (HystrixRuntimeException e) {
             if (e.getFailureType() == HystrixRuntimeException.FailureType.REJECTED_SEMAPHORE_EXECUTION) {
                 throw new NoUserFoundException();
+            } else {
+                throw e;
             }
-            System.err.println("NoUserFoundException");
         }
     }
 

@@ -1,4 +1,4 @@
-package com.example.hystrixthreadcount;
+package com.example.hystrixthreadcount.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,8 +1,9 @@
-package com.example.hystrixthreadcount;
+package com.example.hystrixthreadcount.service;
 
+import com.example.hystrixthreadcount.model.User;
+import com.example.hystrixthreadcount.exception.NoUserFoundException;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
-import com.netflix.hystrix.contrib.javanica.conf.HystrixPropertiesManager;
 import com.netflix.hystrix.exception.HystrixRuntimeException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

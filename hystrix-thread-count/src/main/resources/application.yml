@@ -17,3 +17,7 @@ hystrix:
       allowMaximumSizeToDivergeFromCoreSize: true
       coreSize: 20
       maximumSize: 200
+
+logging:
+  level:
+    com.example.hystrixthreadcount: debug

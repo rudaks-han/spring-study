@@ -1,4 +1,4 @@
-package com.example.hystrixthreadcount;
+package com.example.hystrixthreadcount.service;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
