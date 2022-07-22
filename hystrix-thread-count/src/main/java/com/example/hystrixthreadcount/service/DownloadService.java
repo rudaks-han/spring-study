@@ -20,9 +20,10 @@ public class DownloadService {
         fallbackMethod = "downloadFailed", // fallback이 실행될 메소드 명
         ignoreExceptions = { RuntimeException.class }, // exception으로 제외할 클래스
         commandProperties = {
-                ///@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "20000"), // thread가 해당 시간 이상 실행이 되면 timeout이 발생하여 fallback으로 빠진다
-                @HystrixProperty(name = "execution.isolation.strategy", value = "SEMAPHORE") // semaphore 방식을 이용
-                //@HystrixProperty(name = "execution.isolation.semaphore.maxConcurrentRequests", value = "1") // semaphore 방식을 이용할 경우 최대 동시 요청 수
+                // application.yml에도 commandProperties의 설정이 있으면 application.yml의 설정이 우선한다.
+                @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "20000"), // thread가 해당 시간 이상 실행이 되면 timeout이 발생하여 fallback으로 빠진다
+                @HystrixProperty(name = "execution.isolation.strategy", value = "SEMAPHORE"), // semaphore 방식을 이용
+                @HystrixProperty(name = "execution.isolation.semaphore.maxConcurrentRequests", value = "2") // semaphore 방식을 이용할 경우 최대 동시 요청 수
         }
     )
     public String download(String id) {
