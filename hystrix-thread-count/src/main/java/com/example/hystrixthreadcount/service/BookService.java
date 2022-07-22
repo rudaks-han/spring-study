@@ -13,7 +13,7 @@ public class BookService {
     @HystrixCommand(
         groupKey = "bookService",
         commandKey = "bookService",
-        //threadPoolKey = "bookService",
+        threadPoolKey = "bookService",
         fallbackMethod = "doFallback",
         commandProperties = {
             @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "100000"), // thread가 해당 시간 이상 실행이 되면 timeout이 발생하여 fallback으로 빠진다

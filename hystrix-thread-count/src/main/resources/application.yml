@@ -1,4 +1,6 @@
 hystrix:
+  dashboard:
+    proxy-stream-allow-list: localhost
   command:
     default:
       execution:
@@ -10,14 +12,26 @@ hystrix:
         requestVolumeThreshold: 5
         errorThresholdPercentage: 50
 
-    userService:
+    downloadCommandKey:
       execution.isolation.semaphore.maxConcurrentRequests: 1
   threadpool:
     default:
       allowMaximumSizeToDivergeFromCoreSize: true
       coreSize: 20
       maximumSize: 200
+#    waitingService:
+#      allowMaximumSizeToDivergeFromCoreSize: true
+##      coreSize: 2
+##      maximumSize: 1
+#      maxQueueSize: 0
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 logging:
   level:
+    root: info
     com.example.hystrixthreadcount: debug
