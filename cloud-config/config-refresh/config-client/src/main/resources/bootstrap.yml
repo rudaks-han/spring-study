@@ -6,5 +6,5 @@ spring:
     name: client-app # 서비스명
   cloud:
     config:
-      uri: http://localhost:8888/config
+      uri: http://localhost:8888
 

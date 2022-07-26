@@ -5,4 +5,4 @@ management:
       exposure:
         include: refresh
 
-version: 1.0
+app.version: 1.0

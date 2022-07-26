@@ -4,5 +4,5 @@ POST http://localhost:8080/actuator/refresh
 content-Type: application/json
 
 {
-  "version": "2.0"
+  "app.version": "1"
 }
