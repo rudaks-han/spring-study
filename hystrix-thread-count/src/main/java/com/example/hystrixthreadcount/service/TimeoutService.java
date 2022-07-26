@@ -19,8 +19,8 @@ public class TimeoutService {
         fallbackMethod = "failed", // fallback이 실행될 메소드 명
         ignoreExceptions = { RuntimeException.class }, // exception으로 제외할 클래스
         commandProperties = {
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000"), // thread가 해당 시간 이상 실행이 되면 timeout이 발생하여 fallback으로 빠진다
-            @HystrixProperty(name = "execution.isolation.thread.interruptOnTimeout", value = "2000"),
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000"), // thread가 해당 시간 이상 실행이 되면 timeout이 발생하여 fallback으로 빠진다
+            @HystrixProperty(name = "execution.isolation.thread.interruptOnTimeout", value = "true"), // timeout 발생 시 thread를 interrupt 시킬지 여부
             @HystrixProperty(name = "execution.isolation.strategy", value = "THREAD") // thread 방식을 이용
         },
         threadPoolProperties = {
@@ -39,7 +39,7 @@ public class TimeoutService {
 
     private boolean execute(String id) {
         try {
-            Thread.sleep(50000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

@@ -11,9 +11,9 @@ hystrix:
         enabled: false
         requestVolumeThreshold: 5
         errorThresholdPercentage: 50
-
     downloadCommandKey:
-      execution.isolation.semaphore.maxConcurrentRequests: 1
+      execution.isolation.semaphore.maxConcurrentRequests: 2
+      execution.isolation.thread.timeoutInMilliseconds: 20000
   threadpool:
     default:
       allowMaximumSizeToDivergeFromCoreSize: true
