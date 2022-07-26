@@ -1,0 +1,8 @@
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
+version: 1.0

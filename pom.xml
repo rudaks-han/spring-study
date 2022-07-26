@@ -28,6 +28,7 @@
         <module>spring-kafka</module>
         <module>zuul-filter</module>
         <module>hystrix-thread-count</module>
+        <module>cloud-config</module>
     </modules>
 
     <dependencies>
