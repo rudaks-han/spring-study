@@ -29,6 +29,7 @@
         <module>zuul-filter</module>
         <module>hystrix-thread-count</module>
         <module>cloud-config</module>
+        <module>resilient4j-thread-count</module>
     </modules>
 
     <dependencies>
@@ -37,6 +38,5 @@
             <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
-
 
 </project>

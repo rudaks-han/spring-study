@@ -1,0 +1,10 @@
+resilience4j:
+  bulkhead:
+    configs:
+      default:
+        maxConcurrentCalls: 1 # 동시에 1개만 실행될 수 있도록 한다.
+        maxWaitDuration: 0
+#    instances:
+#      bookService:
+#        maxConcurrentCalls: 1
+
